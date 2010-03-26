@@ -1,0 +1,133 @@
+
+see WebsiteTopicEditTemplate for the TopicTemplate
+
+| *Name*       | *Type* | *Size* | *Values* | *Tooltip message* | *Attributes* |
+| Website URL          | text   | 60     | http:// | | |
+|              | label  |        | If your site is behind a firewall or otherwise not publically available, blank the Website URL | | |
+| Organization         | text   | 60     | | | |
+|              | label  |        | Organization or company which is responsible for the site | | |
+| Description | textarea | 58x5 | | | |
+|              | label  |        | A short description of the purpose and contents of your website.  Keep the text short enough to be read in 5 seconds. | | |
+| Location         | text   | 60     |  | | M |
+|              | label  |        | <b><i>City, State, Country</i></b>: Physical location where you or your office is located (_not_ where your server is located) | | |
+| Latitude         | text   | 15     |  | | M |
+| Longitude         | text   | 15     |  | | M |
+|              | label  |        | <a target='_blank' href='http://www.livephysics.com/ptools/location-to-geo-coordinates.php'>Look up your coordinates</a> | | |
+| Picture | label | 1 | | | H |
+|              | label  |        | | | |
+
+
+----
+---++ new-website
+<verbatim>
+%STARTSECTION{"new-website"}%\
+%SCRIPTURL{edit}%/%INCLUDINGWEB%/WebsiteAUTOINC0?templatetopic=WebsiteTopicEditTemplate;formtemplate=WebsiteForm;action=form;_T=%SERVERTIME{$hou$min$sec}%\
+%ENDSECTION{"new-website"}%
+</verbatim>
+
+---+++ sample
+%INCLUDE{"%TOPIC%" section="new-website"}%
+
+
+---++ new-website-button
+<verbatim>
+%STARTSECTION{"new-website-button"}%\
+[[%INCLUDE{"%TOPIC%" section="new-website"}%][%ICON{"globe"}% Submit new website... ]]
+%ENDSECTION{"new-website-button"}%
+</verbatim>
+
+---+++ sample
+%INCLUDE{"%TOPIC%" section="new-website-button"}%
+
+
+---++ render-compact
+<verbatim>
+%STARTSECTION{"render-compact"}%
+<a href="%THETOPIC%">
+<img src="%PUBURL%/%BASEWEB%/%THETOPIC%/%FORMFIELD{"Picture" topic="%THETOPIC%"}%" width="100" height="125" /><br/>
+<noautolink>%FORMFIELD{"WebsiteURL" topic="%THETOPIC%"}%</noautolink>
+</a>
+%ENDSECTION{"render-compact"}%
+</verbatim>
+
+---+++ sample
+%INCLUDE{"%TOPIC%" section="render-compact" THETOPIC="Website1"}%
+
+
+---++ render-list
+<verbatim>
+%STARTSECTION{"render-list"}%
+<tr onclick="location.href='%THETOPIC%'">
+<td><img src="%PUBURL%/%BASEWEB%/%THETOPIC%/%FORMFIELD{"Picture" topic="%THETOPIC%"}%" width="100" height="125" /></td>
+<td><noautolink>%FORMFIELD{"WebsiteURL" topic="%THETOPIC%"}%</noautolink><br/>%FORMFIELD{"Description" topic="%THETOPIC%"}%</td>
+</tr>
+%ENDSECTION{"render-list"}%
+</verbatim>
+
+---+++ sample
+%INCLUDE{"%TOPIC%" section="render-list" THETOPIC="Website1"}%
+
+
+---++ render-map-js
+<verbatim>
+%STARTSECTION{"render-map-js"}%
+<script src="http://maps.google.com/maps?file=api&v=2&key=ABQIAAAAXuNizwKetGV8B8lqI2AcXBQkBiDA9I23mrf9ZbGSGuChjf173BTjvdDCnDeP2l4Rd47NPIXLjwTG3g&sensor=false" type="text/javascript"></script>
+<script>
+var map = null; 
+function createHTMLNode(htmlCode, tooltip) {
+    // create html node
+    var htmlNode = document.createElement('span');
+    htmlNode.innerHTML = htmlCode
+    htmlNode.className = 'treehtml';
+    htmlNode.setAttribute('title', tooltip);
+    return htmlNode;
+}
+function load_map(p) {
+	 if ( !map ) {
+    map = new GMap2(document.getElementById("map"));
+    map.setMapType(G_PHYSICAL_MAP);
+}
+    var point = new GLatLng(p.latitude,p.longitude);
+    map.setCenter(point, 3);
+//    map.panTo(point, 3);
+    map.addOverlay( new GMarker( point ) );
+    map.openInfoWindow( map.getCenter(), createHTMLNode( 
+    '<table><tr><td>' +
+    '<img width="75" height="85" src="%PUBURL%/%WEB%/' + p.topic + '/' + p.mainphoto + '" style="float:left; padding-right:1em;"/>' +
+    '</td><td>' +
+    p.location + '<br/>' +
+    '<a target="_blank" href="' + p.websiteurl + '">' + p.websiteurl + '</a><br/>' +
+    '</tr></table>'
+     , '' ) );
+}
+</script>
+%ENDSECTION{"render-map-js"}%
+</verbatim>
+
+---+++ sample
+%INCLUDE{"%TOPIC%" section="render-map-js"}%
+
+
+---++ render-map
+<verbatim>
+%STARTSECTION{"render-map"}%\
+<!-- %THETOPIC% -->
+$('#description').fadeOut(500);
+var m = {
+	longitude:%FORMFIELD{"Longitude" topic="%THETOPIC%"}%,
+	latitude:%FORMFIELD{"Latitude" topic="%THETOPIC%"}%,
+	location:'%FORMFIELD{"Location" topic="%THETOPIC%"}%',
+	description:'%FORMFIELD{"Description" topic="%THETOPIC%"}%',
+	websiteurl:'%FORMFIELD{"WebsiteURL" topic="%THETOPIC%"}%',
+	mainphoto:'%FORMFIELD{"Picture" topic="%THETOPIC%"}%',
+	topic:'%THETOPIC%'
+	};\
+load_map(m);
+$('#description').html( m.description );
+//$('#description').html( '%FORMFIELD{"Description" topic="%THETOPIC%"}%' );
+$('#description').fadeIn(1000);
+%ENDSECTION{"render-map"}%
+</verbatim>
+
+---+++ sample
+%INCLUDE{"%TOPIC%" section="render-map" THETOPIC="Website1"}%

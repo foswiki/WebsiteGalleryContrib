@@ -1,0 +1,19 @@
+# Release manifest for WebsiteGalleryContrib
+lib/Foswiki/Contrib/WebsiteGalleryContrib.pm 0644 Perl module
+pub/_WebsiteGalleryContrib/SampleWebsite/lighted.jpg
+pub/_WebsiteGalleryContrib/SampleWebsite/loopita-chaise-1.jpg
+pub/_WebsiteGalleryContrib/SampleWebsite/chair1.jpg
+data/_WebsiteGalleryContrib/WebPreferences.txt
+data/_WebsiteGalleryContrib/WebsitesList.txt
+data/_WebsiteGalleryContrib/WebsitesGeo.txt
+data/_WebsiteGalleryContrib/PersonalInfoPictureViewTemplate.txt
+data/_WebsiteGalleryContrib/PersonalInfoPictureDeleteViewTemplate.txt
+data/_WebsiteGalleryContrib/WebsiteViewTemplate.txt
+data/_WebsiteGalleryContrib/WebsiteTopicEditTemplate.txt
+data/_WebsiteGalleryContrib/WebsiteGeoRenderAjax.txt
+data/_WebsiteGalleryContrib/WebsiteForm.txt
+data/_WebsiteGalleryContrib/WebsiteEditTemplate.txt
+data/_WebsiteGalleryContrib/PersonalInfoLayoutModules.txt
+data/_WebsiteGalleryContrib/SampleWebsite.txt
+data/_WebsiteGalleryContrib/PersonalInfoPictureUploadViewTemplate.txt
+data/System/WebsiteGalleryContrib.txt 0644 Documentation

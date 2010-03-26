@@ -1,0 +1,19 @@
+%META:TOPICINFO{author="WillNorris" date="1249851654" format="1.1" reprev="1.3" version="1.3"}%
+<!--
+   * Set COMMENT_TOPIC = %BASEWEB%.%BASETOPIC%Comments
+-->
+
+
+%META:FORM{name="WebsiteForm"}%
+%META:FIELD{name="WebsiteURL" attributes="" title="Website URL" value="http://librett.org/"}%
+%META:FIELD{name="Organization" attributes="" title="Organization" value=""}%
+%META:FIELD{name="Description" attributes="" title="Description" value="Sed volutpat metus ut diam vehicula semper? In pulvinar purus sed sapien tincidunt scelerisque. Donec egestas urna quis nulla venenatis placerat. Donec vehicula lacus sed massa semper sed ornare nisl pretium? Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere posuere."}%
+%META:FIELD{name="Location" attributes="M" title="Location" value="Guadalajara, Jalisco, Mexico"}%
+%META:FIELD{name="Latitude" attributes="M" title="Latitude" value="20.6667"}%
+%META:FIELD{name="Longitude" attributes="M" title="Longitude" value="-103.3333"}%
+%META:FIELD{name="Picture" attributes="H" title="Picture" value="lighted.jpg"}%
+%META:FILEATTACHMENT{name="loopita-chaise-1.jpg" attachment="loopita-chaise-1.jpg" attr="" author="WillNorris" comment="" date="1249787057" path="loopita-chaise-1.jpg" size="18341" version="1"}%
+%META:FILEATTACHMENT{name="chair1.jpg" attachment="chair1.jpg" attr="" author="WillNorris" comment="" date="1249787074" path="chair1.jpg" size="63070" version="1"}%
+%META:FILEATTACHMENT{name="lighted.jpg" attachment="lighted.jpg" attr="h" author="WillNorris" comment="" date="1249851264" path="via-lattea-glowing-air-filled-furniture-1.jpg" size="16117" version="1"}%
+%META:PREFERENCE{name="VIEW_TEMPLATE" title="VIEW_TEMPLATE" type="Set" value="WebsiteView"}%
+%META:PREFERENCE{name="EDIT_TEMPLATE" title="EDIT_TEMPLATE" type="Set" value="WebsiteEdit"}%

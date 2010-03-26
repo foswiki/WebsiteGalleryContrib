@@ -1,0 +1,39 @@
+%INCLUDE{"WebsiteForm" section="new-website-button"}%
+%STARTINCLUDE%
+<style>
+.even {
+            background:#3355aa;
+}
+.even:hover, .odd:hover {
+	     cursor:pointer;
+}
+.even:hover {
+            background:#3355ff;
+	    color:#dddddd;
+}
+.odd {
+            background:transparent;
+}
+.odd:hover {
+            color:#112255;
+	    background:#ddddee;
+}
+td { padding:0.5em; }
+</style>
+<table class="striped">
+%SEARCH{ nonoise="on" type="query"
+"WebsiteForm"
+format="$percntINCLUDE{$quotWebsiteForm$quot section=$quotrender-list$quot THETOPIC=$quot$topic$quot}$percnt"
+order="created"
+reverse="on"
+}%
+</table>
+<p/>
+<script>
+$(document).ready(function() {
+	$('.striped tr:even').addClass('even');
+	$('.striped tr:odd').addClass('odd');
+});
+</script>
+%STOPINCLUDE%
+%INCLUDE{"WebsiteForm" section="new-website-button"}%

@@ -1,0 +1,2 @@
+%INCLUDE{"WebsiteForm" section="render-map" THETOPIC="%URLPARAM{"THETOPIC"}%"}%
+%META:PREFERENCE{name="SKIN" title="SKIN" type="Set" value="text"}%

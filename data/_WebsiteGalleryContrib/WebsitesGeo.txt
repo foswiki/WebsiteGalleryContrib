@@ -1,0 +1,23 @@
+%INCLUDE{"WebsiteForm" section="new-website-button"}%
+%STARTINCLUDE%
+%INCLUDE{"WebsiteForm" section="render-map-js"}%
+<div id="map" style="width:310px; height:300px; float:left; margin-right:10px;"></div>
+<div id="description"></div>
+%IMAGE{"clear"}%
+<script>
+var idxWebsite = 0;
+var websites = [];
+websites = '%CALC{"$LISTSHUFFLE(%SEARCH{ nonoise="on" type="query" "WebsiteForm" format="$topic" separator="," }%)"}%'.split(/,\s+/);
+function geoRender(site,callback) { $.getScript( "%SCRIPTURL{"view"}%/%WEB%/WebsiteGeoRenderAjax?THETOPIC=" + site, callback ); }
+function nextSite() {
+	setTimeout( function() {
+		++idxWebsite;  if ( idxWebsite >= websites.length ) { idxWebsite=0; }
+//		alert(idxWebsite+': '+websites[idxWebsite]);
+		geoRender( websites[idxWebsite], nextSite );
+	}, 6000 );
+}
+window.onload = function() {
+      geoRender( websites[0], nextSite );
+}
+</script>
+%STOPINCLUDE%

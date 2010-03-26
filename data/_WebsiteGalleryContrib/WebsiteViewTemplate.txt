@@ -1,0 +1,38 @@
+%META:TOPICINFO{author="WillNorris" date="1249544543" format="1.1" version="1.2"}%
+%TMPL:INCLUDE{"view"}%
+
+%TMPL:DEF{"content"}%\
+%JQREQUIRE{"foswiki"}%
+<style>
+td { vertical-align:top; }
+.label { background-color:#330000; color:#eeeeee; }
+.url { font-size:150%; }
+.location { font-style:oblique; }
+</style>
+<span class="url"><a target='_blank' href='%FORMFIELD{"WebsiteURL"}%'>%FORMFIELD{"WebsiteURL"}%</a></span><br/>
+<span class="location"> %FORMFIELD{"Location"}%</span><br/>
+<img id="the_main_image" width="225" height="250" src="%PUBURL%/%WEB%/%TOPIC%/%FORMFIELD{"Picture"}%" style="float:left; padding-right:1em;"/>\
+<p>%FORMFIELD{"Description"}%</p>
+%IMAGE{"clear"}%
+<p/>
+<hr/>
+%ATTACHMENTLIST{web="%BASEWEB%" topic="%BASETOPIC%" sort="$fileDate" sortorder="descending" format="<img onclick=$quot$('#the_main_image').attr('src', '$fileUrl')$quot src='$fileUrl' width='74' height='68' />"}%
+<a href='?template=PersonalInfoPictureView'>change picture</a>
+
+%INCLUDE{"WebsiteForm" section="render-map-js"}%
+<div id="map" style="width:310px; height:300px; float:left; margin-right:10px;"></div>
+<div id="description"></div>
+%IMAGE{"clear"}%
+<script>
+window.onload = function() {
+	      $.getScript("%SCRIPTURL{"view"}%/%WEB%/WebsiteGeoRenderAjax?skin=text;THETOPIC=%BASETOPIC%");
+}
+</script>
+%TMPL:END%
+
+%TMPL:DEF{"form"}%%TMPL:END%
+%TMPL:DEF{"formtop"}%%TMPL:END%
+%TMPL:DEF{"formbottom"}%%TMPL:END%
+
+%TMPL:DEF{"attachments"}%%TMPL:END%
+

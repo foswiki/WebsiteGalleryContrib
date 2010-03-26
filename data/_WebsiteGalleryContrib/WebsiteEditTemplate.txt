@@ -1,0 +1,18 @@
+%TMPL:INCLUDE{"editform"}%
+
+%TMPL:DEF{"content"}%\
+<style>
+table td { vertical-align:top; }
+ul { list-style:none; margin-left:1em; }
+ul li { padding:0.5em; }
+</style>
+<table><tr><td>\
+%TMPL:P{"formstart"}%\
+%TMPL:P{"formbottom"}%\
+%TMPL:P{"topicinfo"}%\
+<div class="foswikiHidden"><input type="hidden" id="topic" name="text" value="%TEXT%" /></div>\
+%TMPL:P{"formend"}%\
+</td><td><ul>
+%ATTACHMENTLIST{web="%BASEWEB%" topic="%BASETOPIC%" format="<li><img src='$fileUrl' width='74' height='68' /></li>"}%\
+</ul></td></tr></table>\
+%TMPL:END%

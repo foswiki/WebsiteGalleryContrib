@@ -1,0 +1,58 @@
+---+!! !WebsiteGalleryContrib
+<!--
+One line description, required for extensions repository catalog.
+BuildContrib will fill in the SHORTDESCRIPTION with the value of
+$SHORTDESCRIPTION from the .pm module, or you can redefine it here if you
+prefer.
+   * Set SHORTDESCRIPTION = %$SHORTDESCRIPTION%
+-->
+%SHORTDESCRIPTION%
+
+%TOC%
+
+---++ Usage
+
+---++ Examples
+
+---++ Installation Instructions
+
+%$INSTALL_INSTRUCTIONS%
+
+---++ Info
+
+
+---++ MANIFEST
+
+   * [[Websites]] - composite of the two lists below
+   * WebsitesList - reverse chronological list of the websites
+   * WebsitesGeo - rotates through the list of websites, showing each one on a map along with a desription and info bubble
+      * WebsiteGeoRenderAjax - ajax call to refresh the webpage with another site entry
+
+   * WebsiteForm - form definition __and__ routines to render the form data
+      * WebsiteTopicEditTemplate - default values for a new website entry
+      * WebsiteViewTemplate - custom-tailored viewer for a website entry, renders form fields and a mini image gallery
+      * WebsiteEditTemplate - custom-tailered editor for a website entry, renders just a form for editting
+      * PersonalInfoPictureDeleteViewTemplate, PersonalInfoPictureUploadViewTemplate, PersonalInfoLayoutModules - support for photos
+
+
+---++ TODO
+   * BUG: javasript gets confused when there is a CR/LF in the description field
+   * BUG: all uploaded photos get named as =FILENAME=
+   * automatic screenshot based on Website URL and picture upload
+   * automatic geocoordinates lookup based on location field (using Foswiki:Extensions.GeoPlugin and/or a web service)
+   * use Foswiki:Extensions.ImagePlugin to generate cached thumbnails
+   * (optionally) add Foswiki:Extensions.TagsPlugin combined with Foswiki:Extensions.TagCloudPlugin
+
+
+
+|  Author(s): | |
+|  Copyright: | &copy; |
+|  License: | [[http://www.gnu.org/licenses/gpl.html][GPL (Gnu General Public License)]] |
+|  Release: | %$RELEASE% |
+|  Version: | %$VERSION% |
+|  Change History: | <!-- versions below in reverse order -->&nbsp; |
+|  Dependencies: | %$DEPENDENCIES% |
+|  Home page: | http://foswiki.org/bin/view/Extensions/WebsiteGalleryContrib |
+|  Support: | http://foswiki.org/bin/view/Support/WebsiteGalleryContrib |
+
+<!-- Do _not_ attempt to edit this topic; it is auto-generated. -->
